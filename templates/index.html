@@ -1,0 +1,171 @@
+export default function SmartWasteManagementWebsite() { const locations = [ { area: 'Bangalore Central', weather: 'Rainy', waste: '180 Tons', risk: 'High', color: 'bg-red-500' }, { area: 'Whitefield', weather: 'Sunny', waste: '95 Tons', risk: 'Low', color: 'bg-green-500' }, { area: 'Electronic City', weather: 'Humid', waste: '140 Tons', risk: 'Medium', color: 'bg-yellow-500' } ]
+
+return ( <div className="min-h-screen bg-slate-100 text-gray-800"> {/* Navbar */} <nav className="bg-blue-700 text-white p-5 shadow-lg flex justify-between items-center"> <h1 className="text-2xl font-bold"> Smart Weather Waste Management </h1>
+
+<div className="space-x-6 text-lg">
+      <a href="#dashboard" className="hover:text-yellow-300">
+        Dashboard
+      </a>
+      <a href="#locations" className="hover:text-yellow-300">
+        Locations
+      </a>
+      <a href="#prediction" className="hover:text-yellow-300">
+        Prediction
+      </a>
+    </div>
+  </nav>
+
+  {/* Hero Section */}
+  <section className="bg-gradient-to-r from-blue-600 to-cyan-500 text-white py-20 px-10 text-center">
+    <h2 className="text-5xl font-bold mb-6">
+      AI-Powered Waste Prediction System
+    </h2>
+
+    <p className="text-xl max-w-4xl mx-auto">
+      Monitor weather conditions, predict waste accumulation, detect
+      overflow risks, and optimize garbage collection schedules using
+      Artificial Intelligence.
+    </p>
+  </section>
+
+  {/* Dashboard Section */}
+  <section id="dashboard" className="p-10">
+    <h2 className="text-4xl font-bold mb-8 text-center">
+      Live Waste Dashboard
+    </h2>
+
+    <div className="grid md:grid-cols-3 gap-8">
+      <div className="bg-white p-8 rounded-3xl shadow-xl">
+        <h3 className="text-2xl font-bold mb-3">Temperature</h3>
+        <p className="text-5xl font-bold text-blue-600">32°C</p>
+        <p className="mt-3 text-gray-500">
+          High temperature increases decomposition rate.
+        </p>
+      </div>
+
+      <div className="bg-white p-8 rounded-3xl shadow-xl">
+        <h3 className="text-2xl font-bold mb-3">Rainfall</h3>
+        <p className="text-5xl font-bold text-cyan-600">24 mm</p>
+        <p className="mt-3 text-gray-500">
+          Heavy rainfall may disrupt collection schedules.
+        </p>
+      </div>
+
+      <div className="bg-white p-8 rounded-3xl shadow-xl">
+        <h3 className="text-2xl font-bold mb-3">Waste Generated</h3>
+        <p className="text-5xl font-bold text-red-600">180 Tons</p>
+        <p className="mt-3 text-gray-500">
+          AI detected high overflow risk in urban zones.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  {/* Location Section */}
+  <section id="locations" className="bg-white p-10">
+    <h2 className="text-4xl font-bold text-center mb-10">
+      Waste Monitoring Locations
+    </h2>
+
+    <div className="grid md:grid-cols-3 gap-8">
+      {locations.map((location, index) => (
+        <div
+          key={index}
+          className="bg-slate-100 rounded-3xl p-6 shadow-lg hover:scale-105 transition duration-300"
+        >
+          <div className="flex items-center justify-between mb-5">
+            <h3 className="text-2xl font-bold">{location.area}</h3>
+
+            <div
+              className={`w-5 h-5 rounded-full ${location.color}`}
+            ></div>
+          </div>
+
+          <p className="mb-2 text-lg">
+            <span className="font-semibold">Weather:</span>{' '}
+            {location.weather}
+          </p>
+
+          <p className="mb-2 text-lg">
+            <span className="font-semibold">Predicted Waste:</span>{' '}
+            {location.waste}
+          </p>
+
+          <p className="mb-4 text-lg">
+            <span className="font-semibold">Risk Level:</span>{' '}
+            {location.risk}
+          </p>
+
+          <button className="bg-blue-600 text-white px-5 py-2 rounded-xl hover:bg-blue-700">
+            View Location
+          </button>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  {/* Prediction Form */}
+  <section id="prediction" className="p-10 bg-slate-100">
+    <h2 className="text-4xl font-bold text-center mb-10">
+      Waste Prediction Input
+    </h2>
+
+    <div className="max-w-3xl mx-auto bg-white rounded-3xl shadow-xl p-10">
+      <div className="grid md:grid-cols-2 gap-6">
+        <input
+          type="number"
+          placeholder="Temperature"
+          className="p-4 rounded-xl border"
+        />
+
+        <input
+          type="number"
+          placeholder="Humidity"
+          className="p-4 rounded-xl border"
+        />
+
+        <input
+          type="number"
+          placeholder="Rainfall"
+          className="p-4 rounded-xl border"
+        />
+
+        <input
+          type="number"
+          placeholder="Population Density"
+          className="p-4 rounded-xl border"
+        />
+      </div>
+
+      <div className="text-center mt-8">
+        <button className="bg-green-600 text-white px-8 py-4 rounded-2xl text-xl hover:bg-green-700 shadow-lg">
+          Predict Waste Level
+        </button>
+      </div>
+    </div>
+  </section>
+
+  {/* Map Section */}
+  <section className="bg-white p-10">
+    <h2 className="text-4xl font-bold text-center mb-10">
+      Smart City Waste Map
+    </h2>
+
+    <div className="bg-slate-200 rounded-3xl h-[400px] flex items-center justify-center text-2xl font-semibold text-gray-600 shadow-inner">
+      Interactive City Map with Waste Locations
+    </div>
+  </section>
+
+  {/* Footer */}
+  <footer className="bg-blue-900 text-white p-8 text-center mt-10">
+    <h2 className="text-2xl font-bold mb-2">
+      Smart Waste Management System
+    </h2>
+
+    <p>
+      AI-Based Weather Sensitive Urban Waste Monitoring Platform
+    </p>
+  </footer>
+</div>
+
+) }
